@@ -1,0 +1,18 @@
+<h1>Home Page Coming Soon</h1>
+
+<% if @current_user.present? %>
+  <p>Welcome Back
+    <%= @current_user.email %></p>
+<% end %>
+
+<h3>Tweets</h3>
+<p>
+<% @tweets.each do |tweet| %>
+<%= tweet.embed.html_safe %>
+</p>
+<% end %>
+
+
+
+
+
