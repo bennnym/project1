@@ -5,35 +5,13 @@ class PagesController < ApplicationController
     #only update if longer than 10 mins this helps with daylight savings
     
     ## TO DO  - optimize this somehow - maybe make it run in the background not on every load?
-    if Time.now - last_tweet > 600
+    get_tweets if Time.now - last_tweet > 600
       
-        client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "XmTytXBvoo53wQkH1PgeggvEM"
-        config.consumer_secret     = "5emA8hVXTerecNr3FCF9rEBX4Jb1WTxfyWV0Zm3ww5UKdP70Rc"
-        config.access_token        = "912455494710714368-rHTelxjTlJfxmqzkA23tFdma1TRenBQ"
-        config.access_token_secret = "k16jtF2uwOgb6mnX3f2Ssm6ZQoIhSVTBjCnpy1D0a0mzY"
-      end
-      
-      # see https://www.rubydoc.info/gems/twitter/Twitter/REST/Search
-      client.search("#nba -rt", options = {lang: "en", result_type: "mixed"} ).take(10).each do |tweets|
-         twitter_post = Tweet.new
-         twitter_post.tweet = tweets.full_text
-         twitter_post.favorite = tweets.favorite_count
-         twitter_post.language = tweets.lang
-         twitter_post.retweet_count = tweets.retweet_count
-         twitter_post.url = tweets.url
-         #embed the link for display on the site
-         url = "https://publish.twitter.com/oembed?url=#{ tweets.url }"
-         info = HTTParty.get url
-         twitter_post.embed = info["html"]
-         twitter_post.save
-       end
-    end
     api = '258c806c6c36002827874f0a7bd6f248538eaed3c08eabae8a3dcdf02684f903'
     date = (DateTime.now - 1).strftime("%Y-%m-%d")
     url = "https://allsportsapi.com/api/basketball/?met=Fixtures&APIkey=#{ api }&from=#{ date }&to=#{ date }&leagueId=787"
     info = HTTParty.get url
     @games = info["result"]
-     @tweets = Tweet.last(5)
+    @tweets = Tweet.last(5)
   end
 end
