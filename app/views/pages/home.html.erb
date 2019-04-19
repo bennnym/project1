@@ -2,10 +2,10 @@
 
 <h3>Recent Scores</h3>
 <% @games.each do |game| %>
-<p><%= game["event_home_team"] %> <%= game["event_final_result"][0...3] %></p>
+<p><%= game.home_team %> <%= game.home_score %></p>
 <p>
-  <%= game["event_away_team"] %>
-  <%= game["event_final_result"][-3..-1] %>
+  <%= game.away_team %>
+  <%= game.away_score %>
 </p>
 <% end %>
 

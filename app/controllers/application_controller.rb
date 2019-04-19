@@ -36,5 +36,23 @@ class ApplicationController < ActionController::Base
    end
   end
   
+  def get_scores
+    api = '258c806c6c36002827874f0a7bd6f248538eaed3c08eabae8a3dcdf02684f903'
+    date = (DateTime.now - 1).strftime("%Y-%m-%d")
+    url = "https://allsportsapi.com/api/basketball/?met=Fixtures&APIkey=#{ api }&from=#{ date }&to=#{ date }&leagueId=787"
+    info = HTTParty.get url
+    games = info["result"]
+    
+    games.each do |game|
+      score = Score.new
+      score.home_team = game["event_home_team"]
+      score.home_score = game["event_final_result"][0..2]
+      score.away_team = game["event_away_team"]
+      score.away_score = ["event_final_result"][-3..-1]
+      score.save
+      @time = Time.now()
+    end
+  end
+  
 
 end

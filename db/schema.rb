@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_033000) do
+ActiveRecord::Schema.define(version: 2019_04_19_112249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "scores", force: :cascade do |t|
+    t.text "home_team"
+    t.integer "home_score"
+    t.text "away_team"
+    t.integer "away_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.text "tweet"
