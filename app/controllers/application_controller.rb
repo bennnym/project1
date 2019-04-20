@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
   
   # see https://www.rubydoc.info/gems/twitter/Twitter/REST/Search
-  client.search("#nba -rt", options = {lang: "en", result_type: "mixed"} ).take(10).each do |tweets|
+  client.search("ESPNNBA", options = {lang: "en", result_type: "mixed"} ).take(10).each do |tweets|
      twitter_post = Tweet.new
      twitter_post.tweet = tweets.full_text
      twitter_post.favorite = tweets.favorite_count

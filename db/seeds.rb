@@ -26,7 +26,7 @@ New_Orleans_Hornets
 New_York_Knicks 
 Oklahoma_City_Thunder 
 Orlando_Magic 
-Philadelphia_Sixers 
+Philadelphia_76ers 
 Phoenix_Suns 
 Portland_Trail_Blazers 
 Sacramento_Kings 

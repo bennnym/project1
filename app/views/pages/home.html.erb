@@ -1,13 +1,7 @@
 <h1>Home Page Coming Soon</h1>
 
-<h3>Recent Scores</h3>
-<% @games.each do |game| %>
-<p><%= game.home_team %> <%= game.home_score %></p>
-<p>
-  <%= game.away_team %>
-  <%= game.away_score %>
-</p>
-<% end %>
+
+
 
 <% if @current_user.present? %>
   <p>Welcome Back
