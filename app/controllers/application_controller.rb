@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :fetch_user #first action the server will take
+  before_action :fetch_user, :scores_nav #first action the server will take
 
   private
   def fetch_user
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
   
   # see https://www.rubydoc.info/gems/twitter/Twitter/REST/Search
-  client.search("ESPNNBA", options = {lang: "en", result_type: "mixed"} ).take(10).each do |tweets|
+  client.search("ESPNNBA -rt", options = {lang: "en", result_type: "mixed"} ).take(10).each do |tweets|
      twitter_post = Tweet.new
      twitter_post.tweet = tweets.full_text
      twitter_post.favorite = tweets.favorite_count
@@ -50,9 +50,87 @@ class ApplicationController < ActionController::Base
       puts score.away_team = game["event_away_team"]
       puts score.away_score = game["event_final_result"].last(3)
       score.save
-      @time = Time.now()
     end
   end
   
+  def scores_nav
+    last_game_update = (Score.last.created_at + Time.now.utc_offset).strftime("%Y-%m-%d")
+    get_scores if Time.now.strftime("%Y-%m-%d") != last_game_update
+    @images = []
+    @games = Score.last(3)
+    @games.each do |game|
+      away = game.away_team.split(' ').last
+      away_img = Team.where("name like ?", "%#{ away }%").first.logo
+      home = game.home_team.split(' ').last
+      home_img = Team.where("name like ?", "%#{ home }%").first.logo
+      @images.push([home_img, away_img])
+    end
+  end
+  
+  def get_news
+    api = '50c50a7fed8e419aa10443c203e72c7c'
+    url = "https://newsapi.org/v2/everything?language=en&q=NBA&from=#{ DateTime.now.strftime("%Y-%m-%d")}&sortBy=popularity&apiKey=#{ api }"
+    
+    info = HTTParty.get url
+    
+    articles = info["articles"].first(20)
+    
+    articles.each do |news|
+      db_news = News.new
+      db_news.source = news["source"]["name"]
+      db_news.title = news["title"]
+      db_news.description = news["description"]
+      db_news.url = news["url"]
+      db_news.image = news["urlToImage"]
+      db_news.content = news["content"]
+      team_name = team_id_locator(db_news.content)
+      if team_name.empty?
+        db_news.team_id = 1
+      else
+        db_news.team_id = Team.where("name like ?", "%#{team_name}%").first.id
+      end
+      db_news.save
+    end
+  end
+    
+    
+    def team_id_locator string
+      
+      team_list = %w(Hawks 
+      Celtics 
+      Nets
+      Bobcats 
+      Bulls 
+      Cavaliers 
+      Mavericks 
+      Nuggets 
+      Pistons 
+      Warriors 
+      Rockets 
+      Pacers 
+      Clippers 
+      Lakers 
+      Grizzlies 
+      Heat 
+      Bucks 
+      Timberwolves 
+      Hornets 
+      Knicks 
+      Thunder 
+      Magic 
+      76ers 
+      Suns 
+      Blazers 
+      Kings 
+      Spurs 
+      Raptors 
+      Jazz 
+      Wizards)
+
+      team_list.select do |team| 
+        return team if string.split.count(team) > 0 
+      end
+    end
+    
 
 end

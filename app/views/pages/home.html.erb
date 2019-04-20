@@ -1,6 +1,7 @@
-<h1>Home Page Coming Soon</h1>
+<div class="container">
 
-
+<header>
+<h1>NB<span class="header">cr<span class="a">A</span>y</span></h1>
 
 
 <% if @current_user.present? %>
@@ -8,7 +9,11 @@
     <%= @current_user.email %></p>
 <% end %>
 
-<div class="centered">
+</header>
+
+<div class="content">
+
+<div class="twitter">
 <h3>Tweets</h3>
 <p>
 <% @tweets.each do |tweet| %>
@@ -17,7 +22,25 @@
 <% end %>
 </div>
 
+<div class="news">
+  
+  <h3>News</h3>
+  <% @news.each do |news| %>
+  <p>
+    
+    <%= news.source %>
+    <%= news.title  %>
+    <%= news.description %>
+    
+  </p>
+  
+  <% end %>
+</div>
 
+
+
+</div>
+</div>
 
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NBAHub</title>
+    <title>NBCray</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -26,10 +26,10 @@
       <% @games.each_with_index do |game, index| %>
       <div class="single-score">
         <div class="teams">
-      <%= image_tag @images[index][0], :class => 'thumb' %><p class="team-name">  <%= game.home_team %>   -   <span><%= game.home_score %></span> </p>
+      <%= image_tag @images[index][0], :class => 'thumb' %><p class="team-name">  <%= game.home_team %>  <span><%= game.home_score %></span> </p>
       </div>
       <div class="teams">
-      <%= image_tag @images[index][1], :class => 'thumb' %><p class="team-name"> <%= game.away_team %>   -  <span><%= game.away_score %></span> </p>
+      <%= image_tag @images[index][1], :class => 'thumb' %><p class="team-name"> <%= game.away_team %>  <span><%= game.away_score %></span> </p>
       </div>
       </div>
       
