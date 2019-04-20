@@ -14,12 +14,14 @@
     <%= @current_user.email %></p>
 <% end %>
 
+<div class="centered">
 <h3>Tweets</h3>
 <p>
 <% @tweets.each do |tweet| %>
 <%= tweet.embed.html_safe %>
 </p>
 <% end %>
+</div>
 
 
 

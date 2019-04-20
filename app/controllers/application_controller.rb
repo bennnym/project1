@@ -45,10 +45,10 @@ class ApplicationController < ActionController::Base
     
     games.each do |game|
       score = Score.new
-      score.home_team = game["event_home_team"]
-      score.home_score = game["event_final_result"][0..2]
-      score.away_team = game["event_away_team"]
-      score.away_score = ["event_final_result"][-3..-1]
+      puts score.home_team = game["event_home_team"]
+      puts score.home_score = game["event_final_result"].first(3)
+      puts score.away_team = game["event_away_team"]
+      puts score.away_score = game["event_final_result"].last(3)
       score.save
       @time = Time.now()
     end

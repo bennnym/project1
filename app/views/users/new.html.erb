@@ -15,5 +15,7 @@
 <%= f.password_field :password %>
 <%= f.label :password_confirmation %>
 <%= f.password_field :password_confirmation %>
+<%= f.label :select %>
+<%= f.select :team_id, Team.pluck(:name, :id), :required => true, :prompt => "Choose a team" %>
 <%= f.submit "Sign Up" %>
 <% end %>

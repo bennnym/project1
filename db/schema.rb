@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_19_112249) do
+ActiveRecord::Schema.define(version: 2019_04_20_031457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 2019_04_19_112249) do
     t.integer "away_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "conference"
+    t.string "division"
+    t.string "founded"
+    t.string "arena"
+    t.string "location"
+    t.string "colors"
+    t.string "general_manager"
+    t.string "president"
+    t.string "headcoach"
+    t.string "championships"
+    t.text "team_url"
+    t.text "logo"
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -41,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_04_19_112249) do
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "team_id"
   end
 
 end

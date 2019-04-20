@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   def home
     last_tweet = Tweet.last.created_at
-    last_game_update = Score.last.created_at.strftime("%Y-%m-%d")
-
+    last_game_update = (Score.last.created_at + Time.now.utc_offset).strftime("%Y-%m-%d")
 
     
     #only update if longer than 10 mins this helps with daylight savings
