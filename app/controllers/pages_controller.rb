@@ -18,6 +18,6 @@ class PagesController < ApplicationController
     news = News.new
     news.get_news if Time.now - last_news_search > 7200 # 2 hours
     @news = News.last(17)
-  
+    get_scores
   end
 end
