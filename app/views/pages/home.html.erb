@@ -1,20 +1,20 @@
 <div class="container">
 
 <header>
+  <%= image_tag "nba.png", :class => 'logo' %>
 <h1>NB<span class="header">cr<span class="a">A</span>y</span></h1>
 
-
-<% if @current_user.present? %>
-  <p>Welcome Back
-    <%= @current_user.email %></p>
-<% end %>
 
 </header>
 
 <div class="content">
 
 <div class="twitter">
-<h3>Tweets</h3>
+  <div class="twitter-heading">
+    <%= image_tag "twitter.svg", :class => 'icon1' %>
+    <%= image_tag "hastag.svg", :class => 'icon2' %>
+<h3>NBA</h3>
+</div>
 <p>
 <% @tweets.each do |tweet| %>
 <%= tweet.embed.html_safe %>
@@ -24,15 +24,17 @@
 
 <div class="news">
   
-  <h3>News</h3>
+  <%= image_tag "newspaper.svg", :class => 'icon3' %>
   <% @news.each do |news| %>
-  <p>
-    
-    <%= news.source %>
-    <%= news.title  %>
-    <%= news.description %>
-    
-  </p>
+  <div class="news-content">
+    <h3><%= news.title  %></h3>
+    <% if news.image.present? %>
+    <%= link_to (image_tag news.image, :class => 'news-image'), news.url, :target => "_blank" %>
+    <% end %>
+    <p>
+    <%= news.content %> <%= link_to news.source, news.url, :target => "_blank" %>
+    </p>
+  </div>
   
   <% end %>
 </div>
