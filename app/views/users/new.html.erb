@@ -1,4 +1,6 @@
-<h1>Sign Up</h1>
+<div class="login">
+
+<h1 class="form-header">Sign Up</h1>
 
 <% if @user.errors.any? %>
   <ol>
@@ -13,9 +15,11 @@
 <%= f.email_field :email %>
 <%= f.label :password %>
 <%= f.password_field :password %>
-<%= f.label :password_confirmation %>
+<%= f.label :password_confirmation, :value => "Confirm Password" %>
 <%= f.password_field :password_confirmation %>
-<%= f.label :select %>
+<%= f.label :select, :class => 'select-label', :value => "Favourite Team" %>
 <%= f.select :team_id, Team.pluck(:name, :id), :required => true, :prompt => "Choose a team" %>
-<%= f.submit "Sign Up" %>
+<%= f.submit "Sign Up", :class => 'button' %>
 <% end %>
+
+</div>

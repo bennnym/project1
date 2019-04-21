@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     tweets.get_tweets "#NBA" if Time.now.utc - last_tweet > 600 # 10 mins
     news.get_news if Time.now - last_news_search > 7200 # 2 hours
     @tweets = Tweet.last(15)
-    @news = News.last(10)
+    @news = News.last(17)
   
   end
 end

@@ -54,6 +54,7 @@ header {
 .news-image {
   max-width: 500px;
   border-radius: 0.3em;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .news-content {
@@ -64,6 +65,7 @@ header {
 .news-content h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
+  text-transform: uppercase;
 }
 
 .news-content p {
@@ -95,6 +97,7 @@ nav {
   justify-content: space-around;
   height: 10vh;
   background-color: rgb(22, 111, 178);
+  letter-spacing: 9px;
 }
 
 nav a {
@@ -106,7 +109,7 @@ nav a {
 }
 
 nav a:hover {
-  color: grey;
+  color: rgb(214,64,86);
 }
 
 .scores {
@@ -145,6 +148,7 @@ nav a:hover {
   width: 20vw;
   display: flex;
   justify-content: space-between;
+  letter-spacing: 3px;
 }
 
 .content {
@@ -177,7 +181,9 @@ nav a:hover {
   line-height: 32px;
 }
 
-
+.tweets {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
 
 
 

@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless @current_user.present?
   end
   
-  
+  ### This makes the score api request
   def get_scores
     api = '258c806c6c36002827874f0a7bd6f248538eaed3c08eabae8a3dcdf02684f903'
     date = (DateTime.now - 2).strftime("%Y-%m-%d")
@@ -30,6 +30,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  
+  # this just makes sure we are doing it once a day only and getting images also
   def scores_nav
     last_game_update = (Score.last.created_at + Time.now.utc_offset).strftime("%Y-%m-%d")
     get_scores if Time.now.strftime("%Y-%m-%d") != last_game_update
