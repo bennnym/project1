@@ -21,4 +21,6 @@
 class Team < ActiveRecord::Base
   has_many :users
   has_many :news
+  has_many :tweets
+  has_many :players
 end

@@ -11,9 +11,12 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  embed         :text
+#  team_id       :integer
 #
 
 class Tweet < ApplicationRecord
+  belongs_to :team, :optional => true
+  
   def get_tweets search_criteria
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "XmTytXBvoo53wQkH1PgeggvEM"
@@ -30,6 +33,12 @@ class Tweet < ApplicationRecord
      twitter_post.language = tweets.lang
      twitter_post.retweet_count = tweets.retweet_count
      twitter_post.url = tweets.url
+     team_name = team_id_locator(twitter_post.tweet) #find the team the post is about
+     if team_name.empty?
+       twitter_post.team_id = nil
+     else
+       twitter_post.team_id = Team.where("name like ?", "%#{team_name}%").first.id
+     end
      #embed the link for display on the site
      url = "https://publish.twitter.com/oembed?url=#{ tweets.url }"
      info = HTTParty.get url
@@ -37,5 +46,44 @@ class Tweet < ApplicationRecord
      twitter_post.save
    end
   end
+  
+  def team_id_locator string  #This method searches the news content and finds which team the news is about in order to associate the news with that team
+    
+    team_list = %w(Hawks 
+    Celtics 
+    Nets
+    Bobcats 
+    Bulls 
+    Cavaliers 
+    Mavericks 
+    Nuggets 
+    Pistons 
+    Warriors 
+    Rockets 
+    Pacers 
+    Clippers 
+    Lakers 
+    Grizzlies 
+    Heat 
+    Bucks 
+    Timberwolves 
+    Hornets 
+    Knicks 
+    Thunder 
+    Magic 
+    76ers 
+    Suns 
+    Blazers 
+    Kings 
+    Spurs 
+    Raptors 
+    Jazz 
+    Wizards)
+
+    team_list.select do |team| 
+      return team if string.split.count(team) > 0 
+    end
+  end
+  
   
 end

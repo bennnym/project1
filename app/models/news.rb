@@ -34,7 +34,7 @@ class News < ApplicationRecord
       db_news.content = news["content"][0...(news["content"].index('['))] # removes the charachter count at the end 
       team_name = team_id_locator(db_news.content)
       if team_name.empty?
-        db_news.team_id = 1
+        db_news.team_id = nil
       else
         db_news.team_id = Team.where("name like ?", "%#{team_name}%").first.id
       end
