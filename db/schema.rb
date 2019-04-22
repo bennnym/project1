@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_21_210439) do
+ActiveRecord::Schema.define(version: 2019_04_22_060029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,15 @@ ActiveRecord::Schema.define(version: 2019_04_21_210439) do
     t.text "first_name"
     t.text "last_name"
     t.text "games_played"
-    t.integer "ppg"
-    t.integer "trb"
-    t.integer "apg"
-    t.integer "fgperc"
-    t.integer "threepperc"
-    t.integer "ftperc"
-    t.integer "efgperc"
-    t.integer "per"
-    t.integer "ws"
+    t.float "ppg"
+    t.float "trb"
+    t.float "apg"
+    t.float "fgperc"
+    t.float "threepperc"
+    t.float "ftperc"
+    t.float "efgperc"
+    t.float "per"
+    t.float "ws"
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

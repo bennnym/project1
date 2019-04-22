@@ -10,8 +10,8 @@ class SessionController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       # then we assisgn the session key of user id to the actual user.id
       session[:user_id] = user.id
-      session[:team] = user.team
-      redirect_to root_path
+      session[:team_id] = user.team_id
+      redirect_to team_path
       
       # either the user didnt enter a valid email, or the password didnt match the email entered
     else
@@ -22,7 +22,7 @@ class SessionController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    session[:team] = nil
+    session[:team_id] = nil
     redirect_to pages_home_path
   end
       

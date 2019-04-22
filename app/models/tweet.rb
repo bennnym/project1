@@ -26,7 +26,7 @@ class Tweet < ApplicationRecord
     end
   
   # see https://www.rubydoc.info/gems/twitter/Twitter/REST/Search
-  client.search("#{ search_criteria } -rt", options = {lang: "en", result_type: "mixed"} ).take(10).each do |tweets|
+  client.search("#{ search_criteria } -rt", options = {lang: "en", result_type: "mixed"} ).take(40).each do |tweets|
      twitter_post = Tweet.new
      twitter_post.tweet = tweets.full_text
      twitter_post.favorite = tweets.favorite_count
@@ -81,8 +81,14 @@ class Tweet < ApplicationRecord
     Wizards)
 
     team_list.select do |team| 
-      return team if string.split.count(team) > 0 
+      if string.split.count(team) > 0 
+        return team 
+      elsif string.split.count(team.downcase) > 0
+        return team
+      elsif string.split.count("#".concat(team)) > 0
+        return team
     end
+  end
   end
   
   

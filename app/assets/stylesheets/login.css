@@ -18,12 +18,14 @@ input#password {
   border-radius: 4px;
   padding: 5px 39px;
   margin-top: 20px;
+  text-align: center;
 }
 
 input#email {
   border-radius: 4px;
   padding: 5px 39px;
   margin-top: 20px;
+  text-align: center;
 }
 
 form input {

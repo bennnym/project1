@@ -1,0 +1,12 @@
+div#team-players_filter.dataTables_filter,
+div#team-players_info.dataTables_info {
+  visibility: hidden;
+}
+
+img.logo {
+  margin-right: 10px;
+}
+
+thead {
+  background-color: rgb(214,64,86);
+}

@@ -10,7 +10,8 @@ class PagesController < ApplicationController
     
     last_tweet = Tweet.last.created_at 
     tweets = Tweet.new
-    tweets.get_tweets "#NBA" if Time.now.utc - last_tweet > 600 # 10 mins
+    topics = %w(#NBA BleacherReport ESPNNBA)
+    tweets.get_tweets topics.sample if Time.now.utc - last_tweet > 600 # 10 mins
     @tweets = Tweet.last(15)
     
     
@@ -18,6 +19,5 @@ class PagesController < ApplicationController
     news = News.new
     news.get_news if Time.now - last_news_search > 7200 # 2 hours
     @news = News.last(17)
-    get_scores
   end
 end

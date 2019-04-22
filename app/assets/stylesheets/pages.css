@@ -185,8 +185,17 @@ nav a:hover {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+.team-table {
+  display: flex;
+  flex-direction: column;  
+}
 
-
+.team-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 
 

@@ -18,11 +18,12 @@ class News < ApplicationRecord
   belongs_to :news, :optional => true
   
   def get_news
+
     api = '50c50a7fed8e419aa10443c203e72c7c'
     url = "https://newsapi.org/v2/everything?language=en&q=NBA&from=#{ DateTime.now.utc.strftime("%Y-%m-%d")}&sortBy=popularity&apiKey=#{ api }"
     
     info = HTTParty.get url
-    articles = info["articles"].first(20)
+    articles = info["articles"].first(80)
     
     articles.each do |news|
       db_news = News.new
@@ -31,9 +32,14 @@ class News < ApplicationRecord
       db_news.description = news["description"]
       db_news.url = news["url"]
       db_news.image = news["urlToImage"]
-      db_news.content = news["content"][0...(news["content"].index('['))] # removes the charachter count at the end 
-      team_name = team_id_locator(db_news.content)
-      if team_name.empty?
+      if news["content"].present?
+        db_news.content = news["content"][0...(news["content"].index('['))]  # removes the charachter count at the end 
+        team_name = team_id_locator(db_news.content)
+      else
+        team_name = nil
+      end
+      
+      if team_name.nil? || team_name.empty?
         db_news.team_id = nil
       else
         db_news.team_id = Team.where("name like ?", "%#{team_name}%").first.id
@@ -78,7 +84,7 @@ class News < ApplicationRecord
     Wizards)
 
     team_list.select do |team| 
-      return team if string.split.count(team) > 0 
+      return team if string.split.count(team) > 0 || string.split.count(team.downcase) > 0
     end
   end
   
