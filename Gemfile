@@ -23,7 +23,6 @@ gem 'coffee-rails', '~> 4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-gem 'bootstrap', '~> 4.0.0'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'jquery-rails'
