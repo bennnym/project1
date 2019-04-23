@@ -26,7 +26,7 @@ class Tweet < ApplicationRecord
     end
   
   # see https://www.rubydoc.info/gems/twitter/Twitter/REST/Search
-  client.search("#{ search_criteria } -rt", options = {lang: "en", result_type: "mixed"} ).take(50).each do |tweets|
+  client.search("#{ search_criteria } -rt", options = {lang: "en", result_type: "mixed"} ).take(15).each do |tweets|
      twitter_post = Tweet.new
      twitter_post.tweet = tweets.full_text
      twitter_post.favorite = tweets.favorite_count

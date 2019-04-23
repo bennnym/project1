@@ -539,22 +539,15 @@ $(document).ready(function() {
      const dataset = []
      
      for (let data of $playerData){
+       
+       let color = `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`
+       
        dataset.push({
          label: data.first_name + data.last_name,
          data: [data.ppg, data.fgperc, data.efgperc, data.threepperc, data.ftperc, data.trb, data.apg, data.per, data.ws],
-         backgroundColor: ["rgba(255,255,255,0)"],
-         borderColor: [ 
-
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
-             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`
-             
+         fill: false,
+         borderColor: [
+             color
          ],
          borderWidth: 3
          
@@ -567,13 +560,13 @@ $(document).ready(function() {
    
    var myChart = new Chart(ctx, {
     type: 'line',
-    responsive: true,
     data: {
         labels: ['PPG', 'FG%', 'eFG%', '3P%', 'FT%', 'TRB', 'APG', 'PER', 'WS'],
         datasets: graphData()
     },
     
     options: {
+      responsive: true,
         scales: {
             yAxes: [{
                 ticks: {
