@@ -501,12 +501,10 @@ $(document).ready(function() {
  "Nemanja Bjelica",
  "Yogi Ferrell"];
   
-  console.log('loading')
   
   $('#name').autoComplete({
       minChars: 2,
       source: function(term, suggest){
-        console.log('working')
           term = term.toLowerCase();
           var choices = players;
           var matches = [];
@@ -515,4 +513,77 @@ $(document).ready(function() {
           suggest(matches);
       }
   });
+  
+   // Code for the player stats graph //
+  
+   
+   const randomColor = function(  ) {
+     return Math.floor(Math.random()*255)
+   };
+   
+   const ctx = $('#myChart');
+   
+   const $playerData = $('.temp_info').data('temp')
+   
+   if ($playerData.length > 0){
+     $('#chart').removeClass('hidden');
+     $('#chart').addClass('graph');
+   } else {
+     $('#chart').addClass('hidden');
+     $('#chart').removeClass('graph');
+   };
+   
+   
+   
+   const graphData = function(  ) {
+     const dataset = []
+     
+     for (let data of $playerData){
+       dataset.push({
+         label: data.first_name + data.last_name,
+         data: [data.ppg, data.fgperc, data.efgperc, data.threepperc, data.ftperc, data.trb, data.apg, data.per, data.ws],
+         backgroundColor: ["rgba(255,255,255,0)"],
+         borderColor: [ 
+
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`,
+             `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`
+             
+         ],
+         borderWidth: 3
+         
+       });
+     }
+     
+     return dataset
+     
+   };
+   
+   var myChart = new Chart(ctx, {
+    type: 'line',
+    responsive: true,
+    data: {
+        labels: ['PPG', 'FG%', 'eFG%', '3P%', 'FT%', 'TRB', 'APG', 'PER', 'WS'],
+        datasets: graphData()
+    },
+    
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+   
+  
+  
 });
