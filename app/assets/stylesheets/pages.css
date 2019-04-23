@@ -27,7 +27,7 @@ body {
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 header {
@@ -61,6 +61,7 @@ header {
 .news-content {
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .news-content h3 {
@@ -172,6 +173,7 @@ nav a:hover {
 
 .icon3 {
   height: 55px;
+  padding-bottom: 8px
 }
 
 .twitter-heading {
@@ -179,6 +181,15 @@ nav a:hover {
   flex-direction: row;
   font-family: 'Roboto', sans-serif;
   font-size: 35px;
+  justify-content: center;
+}
+
+.news-heading{
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  justify-content: center;
 }
 
 .twitter-heading h3 {
