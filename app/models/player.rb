@@ -23,4 +23,8 @@
 class Player < ApplicationRecord
   belongs_to :team, :optional => true
   has_and_belongs_to_many :users, -> { distinct }
+  
+  def name
+    "#{ first_name } #{ last_name }"
+  end
 end
