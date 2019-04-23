@@ -2,15 +2,16 @@ input#user_email,
 input#user_password, 
 input#user_password_confirmation {
   border-radius: 4px;
-  padding: 5px 39px;
-  margin-top: 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 select#user_team_id {
   border-radius: 4px;
-  padding: 5px 39px;
-  margin-top: 20px;
-  height: 25px;
-  width: 200px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
 }

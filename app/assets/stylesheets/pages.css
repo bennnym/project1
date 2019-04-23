@@ -9,6 +9,7 @@
 * {
   /* border: 2px solid green;  */
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -139,7 +140,7 @@ nav a:hover {
 .thumb {
   height: 7vh;
   width: 8vh;
-  margin-right: 50px;
+  margin-right: 40px;
   display: flex;
   justify-content: center;
 }
@@ -149,6 +150,7 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   letter-spacing: 3px;
+  font-size: 18px;
 }
 
 .content {

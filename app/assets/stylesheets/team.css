@@ -10,3 +10,14 @@ img.logo {
 thead {
   background-color: rgb(214,64,86);
 }
+
+#name {
+  height: 50px;
+  border-radius: 1em;
+  font-size: 21px;
+  width: 450px;
+}
+
+#name:focus  {
+ outline: none;
+}

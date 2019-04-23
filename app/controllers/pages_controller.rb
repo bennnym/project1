@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   def home
     # makes sure this isn't the first time you are getting tweets
-    get_tweets
     if Tweet.any? == false
       tweets = Tweet.new
       tweets.get_tweets "#NBA"
@@ -15,12 +14,12 @@ class PagesController < ApplicationController
     tweets.get_tweets topics.sample if Time.now.utc - last_tweet > 600 # 10 mins
     @tweets = Tweet.last(15)
     
-    get_news
     if News.any? == false
       news = News.new
       news.get_news
     else
       last_news_search = News.last.created_at
+      news = News.new
       news.get_news if Time.now - last_news_search > 7200
     end
     

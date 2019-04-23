@@ -12,8 +12,8 @@
 <div class="player-search">
   <%= form_tag team_path do %>
   
-  <%= label_tag :last_name %> 
-  <%= text_field_tag :last_name, "" %>
+  <%= label_tag :name, '' %> 
+  <%= text_field_tag :name, '', :placeholder => "SEARCH FOR A PLAYER EG. LEBRON JAMES", :class => 'player-search' %>
   
   <% end %>
 

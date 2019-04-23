@@ -9,7 +9,7 @@ class TeamController < ApplicationController
   def edit
     @team = Team.find_by :id => session[:team_id]
     
-    player = Player.find_by :last_name => params[:last_name]
+    player = Player.find_by :last_name => params[:name]
     @current_user.players << player
     
     

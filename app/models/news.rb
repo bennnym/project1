@@ -23,7 +23,7 @@ class News < ApplicationRecord
     url = "https://newsapi.org/v2/everything?language=en&q=NBA&from=#{ DateTime.now.utc.strftime("%Y-%m-%d")}&sortBy=popularity&apiKey=#{ api }"
     
     info = HTTParty.get url
-    articles = info["articles"]
+    articles = info["articles"].first(80)
     
     articles.each do |news|
       db_news = News.new
