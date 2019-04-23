@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   delete '/login' => 'session#destroy'
   
   get '/team' => 'team#show'
+  post '/team/remove' => 'team#remove'
   post '/team' => 'team#edit'
+
   
 end

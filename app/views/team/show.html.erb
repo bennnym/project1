@@ -2,7 +2,10 @@
   
 
 <header>
+  
   <div class="team-table">
+    
+    <div class="container column">
     <div class="team-heading">
   <%= image_tag @team.logo, :class => 'logo' %>
 <h1><%= @team.name %></h1>
@@ -15,12 +18,14 @@
   <%= text_field_tag :name, '', :placeholder => "SEARCH FOR A PLAYER EG. LEBRON JAMES", :class => 'player-search' %>
   
   <% end %>
+  </div>
   
   <div class="following">
     
     <% @current_user.players.each do |player| %>
     
-    <span><%= player.name %></span>
+    <span class="player"><%= player.name %><span class="X"><%= link_to (image_tag "error.svg"), team_remove_path(:player_id => player.id), :action => team_remove_path, :method => 'post' %></span></span>
+
     <% end %>
   </div>
 

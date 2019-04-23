@@ -29,3 +29,31 @@ thead {
 #team-players .bg-primary {
   background-color: rgb(214,64,86)
 }
+
+.follow {
+  display: flex;
+  flex-direction: row;
+}
+
+.player {
+  border: 1px black solid;
+  border-radius: 2em;
+  padding: 10px;
+}
+
+.X {
+  margin-left: 12px;
+}
+
+.X img {
+  height: 24px;
+  padding-bottom: 5px;
+}
+
+.container.column {
+  flex-direction: column;
+}
+
+.player-search form {
+  margin-bottom: 20px;
+}

@@ -8,14 +8,19 @@ class TeamController < ApplicationController
   
   def edit
     @team = Team.find_by :id => session[:team_id]
-    last_name = Team.new
-    last_name = last_name.validate_player params[:name]
     
-    player = Player.find_by :last_name => last_name
+    name = Team.new
+    name = name.validate_player params[:name] #returns a hash with first and last names stored
+    
+    player = Player.find_by :last_name => name[:last_n], :first_name => name[:first_n]
     @current_user.players << player
-    
-    
     render :show  
+  end
+  
+  def remove
+    player = @current_user.players.find_by :id => params[:player_id]
+    @current_user.players.delete(player)
+    redirect_to(team_path)
   end
   
 end

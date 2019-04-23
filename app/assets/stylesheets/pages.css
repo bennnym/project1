@@ -21,6 +21,11 @@ body {
   background-size: contain; */
 }
 
+div .teams {
+  display: flex;
+  margin: 10px;
+}
+
 .logo {
   height: 86px;
 }
@@ -28,6 +33,15 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+}
+
+.container-fluid.heading {
+  background-color: rgb(129, 136, 150);
+  display: flex;
+  flex-direction: row;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;  
+  color: white;
 }
 
 header {
@@ -94,15 +108,13 @@ h1 {
   font-size: 104px;
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  height: 10vh;
+.nav {
+  align-items: center;
+  height: 11vh;
   background-color: rgb(22, 111, 178);
-  letter-spacing: 9px;
 }
 
-nav a {
+.nav a {
   text-decoration: none;
   line-height: 10vh;
   font-family: 'Roboto Condensed', sans-serif;
@@ -110,20 +122,9 @@ nav a {
   font-size: 25px;
 }
 
-nav a:hover {
+.nav a:hover {
   color: rgb(214,64,86);
   text-decoration: none;
-}
-
-.scores {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 900;  
-  color: white;
-  background-color: rgb(129, 136, 150);
-  padding: 20px;
 }
 
 .single_score {
@@ -132,7 +133,7 @@ nav a:hover {
   /* background-image: url("../images/court.jpg"); */
 }
 
-.teams {
+s {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -150,7 +151,7 @@ nav a:hover {
 }
 
 .team-name {
-  width: 20vw;
+  width: 24vw;
   display: flex;
   justify-content: space-between;
   letter-spacing: 3px;

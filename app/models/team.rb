@@ -25,7 +25,12 @@ class Team < ActiveRecord::Base
   has_many :players
   
   def validate_player string
-    string[(string.index(' ') + 1)..string.length-1]
+    first_name = string.split(' ').first
+    last_name = string[(string.index(' ') + 1)..string.length-1]
+    name = {
+      :first_n => first_name,
+      :last_n => last_name
+    }
   end
   
 end

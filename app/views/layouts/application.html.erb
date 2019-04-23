@@ -10,21 +10,30 @@
   </head>
 
   <body>
-    <nav>
+    <ul class="nav nav-pills nav-fill">
+       <li class="nav-item">
       <%= link_to 'Home', root_path %>
+       </li>
     <% if @current_user.present? %>
+     <li class="nav-item">
     <%= link_to "Team Page", team_path %>
+     </li>
+      <li class="nav-item">
         <%= link_to "Sign Out", login_path, :method => 'delete' %>
-        
+               </li>
         <% else %>
+            <li class="nav-item">
     <%= link_to 'Sign up', new_user_path %>
+    </li>
+    <li class="nav-item">
     <%= link_to 'Login', login_path %>
+        </li>
     <% end %>
-    </nav>
+    </ul>
     
-    <div class="scores">
+    <div class="container-fluid heading">
       <% @games.each_with_index do |game, index| %>
-      <div class="single-score">
+      <div class="col-md-4">
         <div class="teams">
       <%= image_tag @images[index][0], :class => 'thumb' %><p class="team-name">  <%= game.home_team %>  <span><%= game.home_score %></span> </p>
       </div>
