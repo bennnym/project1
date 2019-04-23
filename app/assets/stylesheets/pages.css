@@ -93,7 +93,7 @@ header {
 h1 {
   color: rgb(22,111,178);
   font-family: 'Kanit', sans-serif;
-  font-size: 104px;
+  font-size: 74px;
   margin: 0;
 }
 
@@ -212,6 +212,7 @@ s {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
 }
 
 @media screen and (max-width: 514px) {
