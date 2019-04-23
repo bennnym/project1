@@ -33,8 +33,14 @@ class ApplicationController < ActionController::Base
   
   # this just makes sure we are doing it once a day only and getting images also
   def scores_nav
-    last_game_update = (Score.last.created_at + Time.now.utc_offset).strftime("%Y-%m-%d")
-    get_scores if Time.now.strftime("%Y-%m-%d") != last_game_update
+    if Score.any? == false
+      get_scores
+    else
+      last_game_update = (Score.last.created_at + Time.now.utc_offset).strftime("%Y-%m-%d")
+      get_scores if Time.now.strftime("%Y-%m-%d") != last_game_update
+    end
+    
+    
     @images = []
     @games = Score.last(3)
     @games.each do |game|
