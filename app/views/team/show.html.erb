@@ -16,12 +16,20 @@
   <%= text_field_tag :name, '', :placeholder => "SEARCH FOR A PLAYER EG. LEBRON JAMES", :class => 'player-search' %>
   
   <% end %>
+  
+  <div class="following">
+    
+    <% @current_user.players.each do |player| %>
+    
+    <span><%= player.name %></span>
+    <% end %>
+  </div>
 
 </div>
 
 <table id="team-players" class="table table-striped table-bordered table-hover" style="width:100%">
         <thead>
-            <tr class="bg-primary">
+            <tr>
                 <th>First</th>
                 <th>Last</th>
                 <th>GP</th>

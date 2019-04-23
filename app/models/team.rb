@@ -23,4 +23,9 @@ class Team < ActiveRecord::Base
   has_many :news
   has_many :tweets
   has_many :players
+  
+  def validate_player string
+    string[(string.index(' ') + 1)..string.length-1]
+  end
+  
 end

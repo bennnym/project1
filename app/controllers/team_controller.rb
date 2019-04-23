@@ -8,10 +8,11 @@ class TeamController < ApplicationController
   
   def edit
     @team = Team.find_by :id => session[:team_id]
+    last_name = Team.new
+    last_name = last_name.validate_player params[:name]
     
-    player = Player.find_by :last_name => params[:name]
+    player = Player.find_by :last_name => last_name
     @current_user.players << player
-    
     
     
     render :show  

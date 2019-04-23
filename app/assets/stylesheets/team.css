@@ -19,5 +19,13 @@ thead {
 }
 
 #name:focus  {
- outline: none;
+ outline: none;  
+}
+
+#team-players {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2)
+}
+
+#team-players .bg-primary {
+  background-color: rgb(214,64,86)
 }

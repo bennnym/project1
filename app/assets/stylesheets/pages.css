@@ -111,6 +111,7 @@ nav a {
 
 nav a:hover {
   color: rgb(214,64,86);
+  text-decoration: none;
 }
 
 .scores {
@@ -121,6 +122,7 @@ nav a:hover {
   font-weight: 900;  
   color: white;
   background-color: rgb(129, 136, 150);
+  padding: 20px;
 }
 
 .single_score {
@@ -143,6 +145,7 @@ nav a:hover {
   margin-right: 40px;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .team-name {
