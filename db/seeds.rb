@@ -91,7 +91,7 @@ end
 
   # get a list of team abreviations to navigate to this years current roster
 
-  team_abreviations = %w(ATL BOS BRK CHO CHI CLE DAL DEN DET GSW HOU IND LAC LAL MEM MIA MIL MIN NOP NYK OKC ORL PHI PHX POR SAC SAS TOR UTA WAS)
+  team_abreviations = %w(ATL BOS BRK CHO CHI CLE DAL DEN DET GSW HOU IND LAC LAL MEM MIA MIL MIN NOP NYK OKC ORL PHI PHO POR SAC SAS TOR UTA WAS)
 
 
   #navigate to this years roster and obtain a list of the links of current players sites
