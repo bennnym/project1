@@ -1,4 +1,6 @@
 <div class="container">
+  
+  
 
 <header>
   <div class="team-table">
@@ -6,6 +8,17 @@
   <%= image_tag @team.logo, :class => 'logo' %>
 <h1><%= @team.name %></h1>
 </div>
+
+<div class="player-search">
+  <%= form_tag team_path do %>
+  
+  <%= label_tag :last_name %> 
+  <%= text_field_tag :last_name, "" %>
+  
+  <% end %>
+
+</div>
+
 <table id="team-players" class="table table-striped table-bordered table-hover" style="width:100%">
         <thead>
             <tr class="bg-primary">
@@ -25,7 +38,7 @@
         </thead>
         <tbody>
           <% @team.players.each do |stat| %>
-          <% unless stat.games_played == "" %>
+          <% unless stat.games_played == "" || stat.games_played.nil? %>
           <tr>
             <td><%= stat.first_name %></td>
             <td><%= stat.last_name %></td>
@@ -56,7 +69,7 @@
 <h3>NBA</h3>
 </div>
 <p>
-<% @team.tweets.each do |tweet| %>
+<% @team.tweets.last(15).each do |tweet| %>
 <%= tweet.embed.html_safe %>
 </p>
 <% end %>
@@ -65,7 +78,7 @@
 <div class="news">
   
   <%= image_tag "newspaper.svg", :class => 'icon3' %>
-  <% @team.news.each do |news| %>
+  <% @team.news.last(15).each do |news| %>
   <div class="news-content">
     <h3><%= news.title  %></h3>
     <% if news.image.present? %>
