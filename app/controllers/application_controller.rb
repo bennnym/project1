@@ -36,8 +36,8 @@ class ApplicationController < ActionController::Base
     if Score.any? == false
       get_scores
     else
-      last_game_update = (Score.last.created_at + Time.now.utc_offset).strftime("%Y-%m-%d")
-      get_scores if Time.now.strftime("%Y-%m-%d") != last_game_update
+      last_game_update = Score.last.created_at.utc.strftime("%Y-%m-%d")
+      get_scores if (Time.now.utc - 86400 ).strftime("%Y-%m-%d") != last_game_update
     end
     
     
