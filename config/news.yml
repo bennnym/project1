@@ -1,0 +1,6 @@
+development:
+  api_key: Rails.application.secrets.news_api_key
+production:
+  api_key: Rails.application.secrets.news_api_key
+test:
+  api_key: Rails.application.secrets.news_api_key

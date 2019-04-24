@@ -19,7 +19,7 @@ class News < ApplicationRecord
   
   def get_news
 
-    api = '50c50a7fed8e419aa10443c203e72c7c'
+    api = Rails.application.secrets.news_api_key
     url = "https://newsapi.org/v2/everything?language=en&q=NBA&from=#{ DateTime.now.utc.strftime("%Y-%m-%d")}&sortBy=popularity&apiKey=#{ api }"
     
     info = HTTParty.get url

@@ -1,0 +1,6 @@
+development:
+  scores_api: Rails.application.secrets.live_scores_api
+production:
+  scores_api: Rails.application.secrets.live_scores_api
+test:
+  scores_api: Rails.application.secrets.live_scores_api
