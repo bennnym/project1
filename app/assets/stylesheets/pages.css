@@ -104,12 +104,12 @@ h1 {
 .header {
   color: rgb(214,64,86);
   font-weight: bold;
-  font-size: 80px;
+  font-size: 6vw;
 }
 
 .a {
   color: rgb(22, 111, 178);
-  font-size: 104px;
+  font-size: 7.2vw;
 }
 
 .nav {
