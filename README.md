@@ -42,9 +42,14 @@ The bottom part of the team page is also comprised of a news and twitter feed. N
 
 ---
 
+##### Other
+
+All NBA data was scraped using Nokogiri. Team data has been scraped from Wikipedia and individual player data from Basketballreference.com.
+
 ## Tools
 **Languages:** HTML, CSS, Ruby and Javascript
 **Frameworks:** Rails, Bootstrap
+**Web Scraping:** Nokogiri
 **Server:** Heroku
 **Libraries:** jQuery, Chart.js, DataTables.js
 **Plugins:** AutoFill
