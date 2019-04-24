@@ -18,8 +18,9 @@ thead {
 
 #name {
   border-radius: 1em;
-  font-size: 4.5vh;
+  font-size: 1.8vw;
   width: 40vw;
+  text-align: center;
 }
 
 #name:focus  {
