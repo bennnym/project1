@@ -14,6 +14,20 @@ class UsersController < ApplicationController
     else
       render :new #using render allows error messages to show
     end
+  end
+  
+  def edit
+    @user = User.find_by :id => @current_user.id
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      @user.save
+      return redirect_to team_path
+    else
+      render :edit
+    end
     
   end
   

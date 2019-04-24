@@ -7,6 +7,11 @@ img.logo {
   margin-right: 5px;
 }
 
+.logo2 {
+  height: 50px;
+  margin-left: 3vw;
+}
+
 thead {
   background-color: rgb(214,64,86);
 }
@@ -14,7 +19,7 @@ thead {
 #name {
   border-radius: 1em;
   font-size: 4.5vh;
-  width: 34vw;
+  width: 40vw;
 }
 
 #name:focus  {

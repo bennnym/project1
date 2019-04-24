@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 35px;  
+  font-size: 3.6vh;  
 }
 
 .login form {
@@ -80,4 +80,13 @@ form .button::after  {
 
 .temp_info {
   display: none;
+}
+
+.container.edit {
+  text-align: center;
+}
+
+.container.edit li {
+  text-align: center;
+  list-style: none;
 }

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root :to => 'pages#home'
   
   get 'session/new'
-  resources :users, :only => [:new, :create]
+  resources :users
   
   get '/login' => 'session#new'
   post '/login' => 'session#create'
