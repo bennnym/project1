@@ -70,7 +70,7 @@ header {
 }
 
 .news-image {
-  max-width: 500px;
+  width: 100%;
   border-radius: 0.3em;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
@@ -96,7 +96,7 @@ header {
 h1 {
   color: rgb(22,111,178);
   font-family: 'Kanit', sans-serif;
-  font-size: 74px;
+  font-size: 5vw;
   margin: 0;
 }
 

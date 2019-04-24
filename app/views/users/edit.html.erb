@@ -15,9 +15,9 @@
 <%= f.label :email, "Update Email" %>
 <%= f.email_field :email, :value => @user.email %>
 <%= f.label :password, "Update Password" %>
-<%= f.password_field :password %>
+<%= f.password_field :password, :required => true %>
 <%= f.label :password_confirmation, :value => "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
+<%= f.password_field :password_confirmation, :required => true%>
 <%= f.label :select, :class => 'select-label', :value => "Favourite Team" %>
 <%= f.select :team_id, Team.pluck(:name, :id), :required => true, :prompt => "Choose a team" %>
 <%= f.submit "Confirm", :class => 'button' %>

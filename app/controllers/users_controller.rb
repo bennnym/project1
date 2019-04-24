@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       @user.save
+      session[:team_id] = @user.team_id
       return redirect_to team_path
     else
       render :edit
