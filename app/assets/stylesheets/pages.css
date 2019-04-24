@@ -31,9 +31,12 @@ div .teams {
 }
 
 .container {
-  display: flex;
   flex-direction: row;
 }
+
+/* .container.teams {
+  display: flex;
+} */
 
 .container-fluid.heading {
   background-color: rgb(129, 136, 150);
@@ -110,7 +113,6 @@ h1 {
 
 .nav {
   align-items: center;
-  height: 11vh;
   background-color: rgb(22, 111, 178);
 }
 
@@ -193,7 +195,7 @@ s {
   justify-content: center;
 }
 
-.twitter-heading h3 {
+.twitter-heading h4,  .twitter-heading h3{
   margin: 0;
   line-height: 32px;
 }
@@ -222,6 +224,10 @@ p.team-name {
 @media screen and (max-width: 514px) {
 /* start of phone styles */
   div.container-fluid.heading {
+    display: none;
+  }
+  
+  .table, h3, .following, input#name {
     display: none;
   }
 }

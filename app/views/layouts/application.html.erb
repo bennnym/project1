@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <ul class="nav nav-pills nav-fill">
+    
+    
+    <ul class="nav nav-pills nav-fill navbar">
        <li class="nav-item">
       <%= link_to 'Home', root_path %>
        </li>
@@ -29,7 +31,7 @@
     <%= link_to 'Login', login_path %>
         </li>
     <% end %>
-    </ul>
+    </ul>  
     
     <div class="container-fluid heading">
       <% @games.each_with_index do |game, index| %>

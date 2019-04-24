@@ -3,7 +3,7 @@
 <%= content_tag :div, class: "temp_info", data: {temp: @current_user.players} do %>
 <% end %>
 
-<header>
+<div class="container">
   
   <div class="team-table">
     
@@ -22,7 +22,7 @@
   <% end %>
   </div>
   
-  <div class="following">
+  <div class="following container">
     
     <% @current_user.players.each do |player| %>
     
@@ -33,7 +33,7 @@
   
   <div class="hidden" id="chart">
     
-    <canvas id="myChart" width="200" height="200"></canvas>
+    <canvas id="myChart"></canvas>
 
     
   </div>
@@ -41,22 +41,22 @@
 </div>
 
 <h3>Team Stats</h3>
-
-<table id="team-players" class="table table-striped table-bordered table-hover" style="width:100%">
+<div class="table-responsive container">
+<table id="team-players" class="table table-striped table-bordered table-hover" >
         <thead>
             <tr>
-                <th>First</th>
-                <th>Last</th>
-                <th>GP</th>
-                <th>PPG</th>
-                <th>TRB</th>
-                <th>APG</th>
-                <th>FG%</th>
-                <th>3P%</th>
-                <th>FT%</th>
-                <th>eFG%</th>
-                <th>PER</th>
-                <th>WS</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">GP</th>
+                <th scope="col">PPG</th>
+                <th scope="col">TRB</th>
+                <th scope="col">APG</th>
+                <th scope="col">FG%</th>
+                <th scope="col">3P%</th>
+                <th scope="col">FT%</th>
+                <th scope="col">eFG%</th>
+                <th scope="col">PER</th>
+                <th scope="col">WS</th>
             </tr>
         </thead>
         <tbody>
@@ -79,17 +79,16 @@
           <% end %>
           <% end %>
           </table>
-
 </div>
-</header>
-
-<div class="container">
-
+</div>
+</div>
+<div class="container teams">
+<div class="row">
 <div class="col-md-6">
   <div class="twitter-heading">
     <%= image_tag "twitter.svg", :class => 'icon1' %>
     <%= image_tag "hastag.svg", :class => 'icon2' %>
-<h3>NBA</h3>
+<h4><%= @team.name.split.last %></h4>
 </div>
 <p>
 <% @team.tweets.last(15).each do |tweet| %>
@@ -117,7 +116,7 @@
 </div>
 
 
-
+</div>
 </div>
 
 
