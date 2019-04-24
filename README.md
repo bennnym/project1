@@ -1,4 +1,4 @@
-# ![](/Users/benmuller/Projects/tictactoe/img/ga.png) SEI-31 Project 1: NBcrAy
+# ![](/app/assets/images/ga.png) SEI-31 Project 1: NBcrAy
 
 This was developed as part of SEI 31 Project 1, the goal was to build a web application from scratch, with knowledge of front and back-end web development to produce an awesome web application that can be used by friends, family or any of the other billions of people who use the Internet. The type of web application I chose to create was completely up to me.
 
