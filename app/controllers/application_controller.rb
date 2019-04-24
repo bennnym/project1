@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
       get_scores
     else
       last_game_update = Score.last.created_at.utc
+      # Past 4pm sydney time & last update was over 24hrs ago
       get_scores if Time.now > Time.parse("#{Date.today} 16:00") && last_game_update + 86400 < Time.now.utc
     end
     
