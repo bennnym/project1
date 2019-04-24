@@ -230,6 +230,10 @@ p.team-name {
   .table, h3, .following, input#name {
     display: none;
   }
+  
+  .team-heading {
+    flex-direction: column;
+  }
 }
 
 
