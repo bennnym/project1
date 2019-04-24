@@ -543,7 +543,7 @@ $(document).ready(function() {
        let color = `rgba(${randomColor()}, ${randomColor()}, ${randomColor()}, 1)`
        
        dataset.push({
-         label: data.first_name + data.last_name,
+         label: data.first_name + ' ' + data.last_name,
          data: [data.ppg, data.fgperc, data.efgperc, data.threepperc, data.ftperc, data.trb, data.apg, data.per, data.ws],
          fill: false,
          borderColor: [
