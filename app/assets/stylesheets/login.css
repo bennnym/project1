@@ -90,3 +90,7 @@ form .button::after  {
   text-align: center;
   list-style: none;
 }
+
+.stats {
+  text-align: center;
+}
