@@ -28,7 +28,7 @@ div .teams {
 }
 
 .logo {
-  height: 7.2vw;
+  height: 22vh;
 }
 
 .container {
@@ -104,7 +104,7 @@ h1 {
 .header {
   color: rgb(214,64,86);
   font-weight: bold;
-  font-size: 6vw;
+  font-size: 17vh;
 }
 
 .a {
@@ -238,6 +238,22 @@ p.team-name {
   
   .team-heading {
     flex-direction: column;
+  }
+  
+  h1.NB, span.a, img.logo {
+    font-size: 50px;
+  }
+  
+  span.header {
+    font-size: 46px;
+  }
+  
+  img.logo {
+    height: 50px;
+  }
+  
+  .nav {
+    font-size: x-small;
   }
 }
 

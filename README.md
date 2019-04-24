@@ -53,5 +53,6 @@ All NBA data was scraped using Nokogiri. Team data has been scraped from Wikiped
 **Server:** Heroku
 **Libraries:** jQuery, Chart.js, DataTables.js
 **Plugins:** AutoFill
-**API's***: Twitter, News, All Sports.
+**API's:** Twitter, News, All Sports.
+**Gems:** twitter, bootstrap, httparty, ruby-oembed
 **Other:** Awesome Fonts
