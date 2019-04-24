@@ -255,6 +255,18 @@ p.team-name {
   .nav {
     font-size: x-small;
   }
+  
+  div#team-players_wrapper {
+    display: none;
+  }
+  
+  h1 {
+    font-size: 30px;
+  }
+  
+  .player-search form {
+    display: none;
+  }
 }
 
 
