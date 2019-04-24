@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def home
-    get_scores
     # makes sure this isn't the first time you are getting tweets
     if Tweet.any? == false
       tweets = Tweet.new
