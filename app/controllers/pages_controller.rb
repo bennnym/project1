@@ -12,17 +12,17 @@ class PagesController < ApplicationController
     tweets = Tweet.new
     topics = %w(#NBA BleacherReport ESPNNBA)
     tweets.get_tweets topics.sample if Time.now.utc - last_tweet > 600 # 10 mins
-    @tweets = Tweet.last(15)
+    @tweets = Tweet.last(15).reverse #most recent tweets are show first
     
     if News.any? == false
       news = News.new
       news.get_news
     else
-      last_news_search = News.last.created_at
+      last_news_search = News.last.created_at.utc
       news = News.new
       news.get_news if Time.now - last_news_search > 7200
     end
     
-    @news = News.last(17)
+    @news = News.last(17).reverse #makes the most recent news show first
   end
 end
