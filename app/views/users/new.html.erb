@@ -1,25 +1,25 @@
 <div class="login">
 
-<h1 class="form-header">Sign Up</h1>
+  <h1 class="form-header">Sign Up</h1>
 
-<% if @user.errors.any? %>
-  <ol>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+  <% if @user.errors.any? %>
+    <ol>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-            <% end %>
-</ol>
+    <% end %>
+  </ol>
 
-<%= form_for @user do |f| %>
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<%= f.label :password_confirmation, :value => "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
-<%= f.label :select, :class => 'select-label', :value => "Favourite Team" %>
-<%= f.select :team_id, Team.pluck(:name, :id), :required => true, :prompt => "Choose a team" %>
-<%= f.submit "Sign Up", :class => 'button' %>
+  <%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation, :value => "Confirm Password" %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.label :select, :class => 'select-label', :value => "Favourite Team" %>
+  <%= f.select :team_id, Team.pluck(:name, :id), :required => true, :prompt => "Choose a team" %>
+  <%= f.submit "Sign Up", :class => 'button' %>
 <% end %>
 
 </div>
