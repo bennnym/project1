@@ -226,6 +226,10 @@ p.team-name {
   margin: auto;
 }
 
+div.news-content p {
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 514px) {
 /* start of phone styles */
   div.container-fluid.heading {
