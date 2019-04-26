@@ -494,7 +494,7 @@
       "Jonathan Gibson",
       "D'Angelo Russell",
       "Rondae Hollis-Jefferson",
-      "De'Aaron Fox",
+      "De'Aaron Fox", 
       "Bogdan Bogdanovic",
       "Frank Mason III",
       "Marvin Bagley III",
