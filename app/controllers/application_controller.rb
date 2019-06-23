@@ -33,14 +33,14 @@ class ApplicationController < ActionController::Base
   end
 
   # this just makes sure we are doing it once a day only and getting images also
-  def scores_nav
-    if Score.any? == false
-      get_scores
-    else
-      last_game_update = Score.last.created_at.utc
-      # Past 4pm sydney time & last update was over 24hrs ago
-      get_scores if Time.now > Time.parse("#{Date.today} 16:00") && last_game_update + 86_400 < Time.now.utc
-    end
+  # def scores_nav
+  #   if Score.any? == false
+  #     get_scores
+  #   else
+  #     last_game_update = Score.last.created_at.utc
+  #     # Past 4pm sydney time & last update was over 24hrs ago
+  #     get_scores if Time.now > Time.parse("#{Date.today} 16:00") && last_game_update + 86_400 < Time.now.utc
+  #   end
 
     @images = []
     @games = Score.last(3)
