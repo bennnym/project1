@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -13,8 +15,8 @@
 
 class User < ApplicationRecord
   has_secure_password
-  validates :email, :presence => true, :uniqueness => true
-   # (cant create a User without an email and has to be unique in the db)
-   belongs_to :team, :optional => true
-   has_and_belongs_to_many :players, -> { distinct }
+  validates :email, presence: true, uniqueness: true
+  # (cant create a User without an email and has to be unique in the db)
+  belongs_to :team, optional: true
+  has_and_belongs_to_many :players, -> { distinct }
 end
