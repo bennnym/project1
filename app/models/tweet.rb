@@ -86,8 +86,8 @@ class Tweet < ApplicationRecord
         return team
       elsif string.split.count(team.downcase) > 0
         return team
-      elsif string.split.count('#'.concat(team)) > 0
-        return team
+      # elsif string.split.count('#'.concat(team)) > 0
+        # return team
     end
     end
   end
